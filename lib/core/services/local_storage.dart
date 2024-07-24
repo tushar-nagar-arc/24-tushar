@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:get/get_instance/get_instance.dart';
 import 'package:hive/hive.dart';
 
@@ -15,13 +17,17 @@ class LocalStorage {
   } 
 
   static Future addToFavourite(String url) async{
+    log("add function");
     final favourites = Hive.box("favourites");
-    Set<String>? favouriteList = getFavourite() ?? Set();
+    List<String>? favouriteList = getFavourite() ?? [];
+    if(favouriteList.contains(url)){
+      return;
+    }
     favouriteList.add(url);
     favourites.put("favourites", favouriteList);
   }
 
-  static Set<String>? getFavourite(){
+  static List<String>? getFavourite(){
     final favourites = Hive.box("favourites");
     return favourites.get("favourites");
   }

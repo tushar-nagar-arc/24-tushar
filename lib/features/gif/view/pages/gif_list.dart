@@ -48,7 +48,7 @@ class GifList extends StatelessWidget {
         padding: const EdgeInsets.all(16.0),
         child: IconButton(
           onPressed: () {
-            Get.to(const FavouritePage());
+            Get.to(() => const FavouritePage());
           },
           icon: const Icon(Icons.favorite_outline)),
         ),
