@@ -94,14 +94,14 @@ class GifList extends StatelessWidget {
                         ),
                     ]);
                   } 
-                  },
-                 ),
+                 },
                 ),
+              ),
              ]
            );
           },
         ),
-        ),
+      ),
     );
   }
 }

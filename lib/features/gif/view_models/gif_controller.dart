@@ -21,7 +21,7 @@ class GifController extends GetxController {
   Future fetchTrendingGifs() async {
     ApiKeyProvider.selectKey();
     final uri = Uri.parse(
-        "${searchStr.value.isEmpty ? AppUrls.trendingUrl : AppUrls.searchUrl}?api_key=${ApiKeys.androidApiKey}&q=${searchStr.value}&offset=$page&limit=$limit");
+        "${searchStr.value.isEmpty ? AppUrls.trendingUrl : AppUrls.searchUrl}?api_key=${ApiKeyProvider.getApiKey}&q=${searchStr.value}&offset=$page&limit=$limit");
     try {
       final response = await http.get(uri);
       final decodedResponse = json.decode(response.body);
